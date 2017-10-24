@@ -3,28 +3,28 @@
 
     <group android:checkableBehavior="none">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_home"
             android:icon="@drawable/menu_home"
             android:title="Trang chủ" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_order"
             android:icon="@drawable/menu_my_orders"
             android:title="Đơn hàng của tôi" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_notification"
             android:icon="@drawable/menu_notification"
             android:title="Thông báo" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_wishlist"
             android:icon="@drawable/menu_wishlist"
             android:title="Danh sách yêu thích" />
 
         <item
-            android:id="@+id/nav_share"
+            android:id="@+id/nav_setting"
             android:icon="@drawable/menu_settings"
             android:title="Cài đặt" />
         <item
-            android:id="@+id/nav_send"
+            android:id="@+id/nav_help"
             android:icon="@drawable/menu_help"
             android:title="Bạn có cần giúp đỡ?" />
     </group>
