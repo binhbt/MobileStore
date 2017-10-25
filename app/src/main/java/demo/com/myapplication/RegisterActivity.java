@@ -19,6 +19,7 @@ public class RegisterActivity   extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setTitle("Đăng ký");
     }
 
     @Override
