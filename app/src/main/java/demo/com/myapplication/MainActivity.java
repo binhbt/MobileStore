@@ -18,13 +18,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private ImageView imgAvatar;
+    private TextView txtName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +50,20 @@ public class MainActivity extends AppCompatActivity
         PagerSlidingTabStrip tabsStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         // Attach the view pager to the tab strip
         tabsStrip.setViewPager(viewPager);
+
+        View header = navigationView.getHeaderView(0);
+
+        imgAvatar = (ImageView)header.findViewById(R.id.img_avatar);
+        txtName = (TextView) header.findViewById(R.id.txt_name);
+        View.OnClickListener onClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(i);
+            }
+        };
+        imgAvatar.setOnClickListener(onClickListener);
+        txtName.setOnClickListener(onClickListener);
     }
 
     @Override
@@ -85,6 +102,7 @@ public class MainActivity extends AppCompatActivity
 
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
