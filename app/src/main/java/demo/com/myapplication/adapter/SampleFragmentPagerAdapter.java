@@ -1,8 +1,10 @@
-package demo.com.myapplication;
+package demo.com.myapplication.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import demo.com.myapplication.PageFragment;
 
 /**
  * Created by leobui on 10/24/2017.
