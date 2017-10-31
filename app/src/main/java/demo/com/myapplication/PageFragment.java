@@ -1,5 +1,6 @@
 package demo.com.myapplication;
 
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -78,7 +80,6 @@ public class PageFragment extends Fragment {
         mPhoneAdapter.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore() {
-                Log.e("haint", "Load More");
                 mPhones.add(null);
                 mPhoneAdapter.notifyItemInserted(mPhones.size() - 1);
 
@@ -86,7 +87,6 @@ public class PageFragment extends Fragment {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Log.e("haint", "Load More 2");
 
                         //Remove loading item
                         mPhones.remove(mPhones.size() - 1);
@@ -114,11 +114,13 @@ public class PageFragment extends Fragment {
         public TextView txtName;
         public TextView txtPrice;
         public TextView txtOldPrice;
+        public ImageView imgThumb;
         public PhoneViewHolder(View itemView) {
             super(itemView);
             txtName = (TextView) itemView.findViewById(R.id.txt_name);
             txtPrice = (TextView) itemView.findViewById(R.id.txt_price);
             txtOldPrice = (TextView) itemView.findViewById(R.id.txt_old_price);
+            imgThumb = (ImageView) itemView.findViewById(R.id.img_thumb);
         }
     }
 
@@ -190,9 +192,14 @@ public class PageFragment extends Fragment {
                 PhoneViewHolder phoneViewHolder = (PhoneViewHolder) holder;
                 phoneViewHolder.txtName.setText(phone.getName());
                 phoneViewHolder.txtPrice.setText(phone.getPrice()+" VND");
-                phoneViewHolder.txtOldPrice.setPaintFlags(phoneViewHolder.txtOldPrice.getPaintFlags()
-                        | Paint.STRIKE_THRU_TEXT_FLAG);
 
+                phoneViewHolder.imgThumb.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent i = new Intent(getActivity(), DetailPhoneActivity.class);
+                        startActivity(i);
+                    }
+                });
             } else if (holder instanceof LoadingViewHolder) {
                 LoadingViewHolder loadingViewHolder = (LoadingViewHolder) holder;
                 loadingViewHolder.progressBar.setIndeterminate(true);
