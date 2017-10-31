@@ -190,7 +190,8 @@ public class PageFragment extends Fragment {
                 PhoneViewHolder phoneViewHolder = (PhoneViewHolder) holder;
                 phoneViewHolder.txtName.setText(phone.getName());
                 phoneViewHolder.txtPrice.setText(phone.getPrice()+" VND");
-                phoneViewHolder.txtOldPrice.setPaintFlags(phoneViewHolder.txtOldPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                phoneViewHolder.txtOldPrice.setPaintFlags(phoneViewHolder.txtOldPrice.getPaintFlags()
+                        | Paint.STRIKE_THRU_TEXT_FLAG);
 
             } else if (holder instanceof LoadingViewHolder) {
                 LoadingViewHolder loadingViewHolder = (LoadingViewHolder) holder;
